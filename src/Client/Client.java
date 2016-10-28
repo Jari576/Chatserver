@@ -13,7 +13,6 @@ public class Client {
 
 	public static void main(String[] args) {
 		socket = null;
-		//dfgjsdfgklsdhlksgh
 		Scanner sc = new Scanner(System.in);
 		System.out.println("port:");
 		int port = sc.nextInt();
