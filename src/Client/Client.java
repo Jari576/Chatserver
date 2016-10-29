@@ -9,7 +9,7 @@ public class Client {
 	private static Socket socket;
 	private static BufferedReader user_in;
 	private static BufferedReader server_in;
-	private static PrintWriter out;
+	private static PrintWriter out; 
 
 	public static void main(String[] args) {
 		socket = null;
