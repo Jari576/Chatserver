@@ -28,15 +28,7 @@ public class AdminThread implements Runnable {
 
 				if (input != null) {
 					if (input.charAt(0) == '!') {
-						if(input.substring(0, 5).equals("!kick")) {
-							String tobekicked = input.substring(6, input.length());
-							for (ClientThread thread : Server.Clients) {
-								if(thread.getID().equals(tobekicked)){
-									thread.getWriter().println("ur kicked fgt");
-									thread.getSocket().close();
-								}
-							}
-						}
+						adminfunctionality(input);
 					} else {
 						for (ClientThread thread : Server.Clients) {
 							thread.getWriter().println("Server : " + input);
@@ -46,6 +38,24 @@ public class AdminThread implements Runnable {
 			}
 		} catch (IOException | InterruptedException e) {
 			e.printStackTrace();
+		}
+	}
+	
+	public void adminfunctionality(String input) throws IOException {
+		//kick functionality
+		if(input.substring(0, 5).equals("!kick")) {
+			kick(input);
+		}
+		
+	}
+	
+	public void kick(String input) throws IOException {
+		String tobekicked = input.substring(6, input.length());
+		for (ClientThread thread : Server.Clients) {
+			if(thread.getID().equals(tobekicked)){
+				thread.getWriter().println("ur kicked fgt");
+				thread.getSocket().close();
+			}
 		}
 	}
 }

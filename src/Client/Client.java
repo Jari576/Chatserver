@@ -70,6 +70,6 @@ public class Client {
 		} catch(IllegalArgumentException e) {
 			System.err.println("incorrect port input");
 			System.exit(1);
-		} 
+		}
 	}
 }
