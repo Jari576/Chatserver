@@ -16,7 +16,7 @@ public class ClientThread implements Runnable {
 		this.socket = s;
 		this.file = f;
 	}
-
+	//sdvdfg
 	@Override
 	public void run() {
 		try {
