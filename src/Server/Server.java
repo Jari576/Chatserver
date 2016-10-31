@@ -10,7 +10,7 @@ public class Server {
 	static ArrayList<String> ClientIDs;
 	static ArrayList<String> Passwords;
 	static int port;
-	static final File file = new File("C:\\Users\\jarib\\workspace\\MultibleClientChat\\src\\Server\\Accounts.txt");
+	static final File file = new File("src\\Server\\Accounts.txt");
 
 	public static void main(String[] args) {
 		ClientIDs = new ArrayList<String>();
@@ -22,6 +22,8 @@ public class Server {
 			System.out.println("Server started");
 			System.out.println("Port: " + port);
 			System.out.println("waiting for connection...");
+			Thread at = new Thread(new AdminThread());
+			at.start();
 			AcceptClients();
 
 		} catch (IOException e) {
