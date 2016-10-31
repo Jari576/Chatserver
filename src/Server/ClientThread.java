@@ -26,7 +26,7 @@ public class ClientThread implements Runnable {
 			String input;
 			Thread.sleep(500);
 			out.println("welcome to my server");
-
+			
 			String login = in.readLine();
 			password = in.readLine();
 			id = in.readLine();
@@ -98,7 +98,14 @@ public class ClientThread implements Runnable {
 			e.printStackTrace();
 		}
 	}
+	
+	public Socket getSocket() {
+		return socket;
+	}
 
+	public String getID() {
+		return id;
+	}
 	public PrintWriter getWriter() {
 		return out;
 	}
