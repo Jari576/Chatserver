@@ -1,27 +1,44 @@
 package Client;
 
+import java.awt.EventQueue;
 import java.io.*;
 import java.net.*;
 import java.util.*;
 
 public class Client {
 
-	private static Socket socket;
+	private static Socket socket=null;
 	private static BufferedReader user_in;
 	private static BufferedReader server_in;
 	private static PrintWriter out; 
 	private static int port;
+	private static String id;
+	private static String pw;
+	private static ClientFrame window;
 	
 	public static void main(String[] args) {
-		socket = null;
-		Scanner sc = new Scanner(System.in);
-		System.out.println("port:");
-		try{
-			port = sc.nextInt();
-		} catch(InputMismatchException e) {
-			System.err.println("incorrect port input");
-			System.exit(1);
-		}
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					window = new ClientFrame();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+		
+		//Create Scanner sc
+		//Scanner sc = new Scanner(System.in);
+		
+		
+		//System.out.println("port:");
+		//try{
+		//	port = sc.nextInt();
+		//} catch(InputMismatchException e) {
+		//	System.err.println("incorrect port input");
+		//	System.exit(1);
+		//}
 		System.out.println("1. login");
 		System.out.println("2. new account");
 		sc.nextLine();
@@ -30,10 +47,10 @@ public class Client {
 			System.out.print("1 or 2");
 			login = sc.nextLine();
 		}
-		System.out.println("username:");
-		String id = sc.nextLine();
-		System.out.println("password:");
-		String pw = sc.nextLine();
+		//System.out.println("username:");
+		//String id = sc.nextLine();
+		//System.out.println("password:");
+		//String pw = sc.nextLine();
 		
 		try {
 			socket = new Socket("localhost", port);
@@ -71,5 +88,14 @@ public class Client {
 			System.err.println("incorrect port input");
 			System.exit(1);
 		}
+	}
+	
+	private static void login(){
+	//	id=window.getID();
+	//	pw=window.getPW();
+	}
+	
+	private static void getServer(){
+		
 	}
 }
