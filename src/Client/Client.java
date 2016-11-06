@@ -41,19 +41,22 @@ public class Client {
 			out = new PrintWriter(socket.getOutputStream(), true);
 			server_in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			user_in = new BufferedReader(new InputStreamReader(System.in));
-			String input;
+			
 			out.println(login);
-			out.println(pw);
+			
 			out.println(id);
+			out.println(pw);
+			
+			String input;
 			while (!socket.isClosed()) {
 				
 				if (server_in.ready()) {
 					input = server_in.readLine();
 					if (input != null) {
 						System.out.println(input);
-						if(input.equals("ur kicked fgt")) {
-							socket.close();
-						}
+						//if(input.equals("ur kicked fgt")) {
+						//	socket.close();
+						//}
 					}
 				}
 				

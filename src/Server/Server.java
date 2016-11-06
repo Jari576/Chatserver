@@ -22,7 +22,7 @@ public class Server {
 			System.out.println("Server started");
 			System.out.println("Port: " + port);
 			System.out.println("waiting for connection...");
-			Thread at = new Thread(new AdminThread());
+			Thread at = new Thread(new AdminThread(file));
 			at.start();
 			AcceptClients();
 
